@@ -230,23 +230,36 @@ h1{
 .magic-field{
   position:relative;
   flex:1;
-}
-.field-input{
-  width:100%;
   padding:14px 16px;
   border-radius:14px;
   border:2px solid rgba(255,211,110,0.45);
   background:rgba(15,8,35,0.55);
   font-size:1.05rem;
   font-family:inherit;
-  outline:none;
   box-sizing:border-box;
   transition:border-color 0.25s ease, box-shadow 0.25s ease;
 }
-.field-input:focus,
-.field-input:focus-within{
+.magic-field:focus-within{
   border-color:var(--gold);
   box-shadow:0 0 18px rgba(255,211,110,0.35);
+}
+#questionInput{
+  width:100%;
+  padding:0;
+  margin:0;
+  border:none;
+  background:transparent;
+  font-size:inherit;
+  font-family:inherit;
+  outline:none;
+  color:var(--gold-bright);
+  caret-color:var(--gold);
+  font-weight:600;
+}
+#questionInput::placeholder{
+  color:#9a86c9;
+  opacity:0.8;
+  font-weight:500;
 }
 .secret-box{
   display:flex;
@@ -258,15 +271,6 @@ h1{
   color:var(--gold-bright);
   font-weight:600;
   white-space:pre;
-}
-.fake-cursor{
-  flex-shrink:0;
-  display:inline-block;
-  width:2px;
-  height:1.15em;
-  background:var(--gold);
-  margin-left:2px;
-  opacity:0.9;
 }
 #secretInput{
   flex:1;
@@ -281,16 +285,6 @@ h1{
   outline:none;
   color:transparent;
   caret-color:transparent;
-}
-#questionInput{
-  color:var(--gold-bright);
-  caret-color:var(--gold);
-  font-weight:600;
-}
-#questionInput::placeholder{
-  color:#9a86c9;
-  opacity:0.8;
-  font-weight:500;
 }
 .ask-btn{
   padding:14px 18px;
@@ -507,14 +501,12 @@ h1{
         <input
           type="text"
           id="questionInput"
-          class="field-input question"
           placeholder="escreve aqui a magia..."
           autocomplete="off"
           spellcheck="false"
         >
-        <div class="field-input secret-box" id="secretBox" style="display:none">
+        <div class="secret-box" id="secretBox" style="display:none">
           <span class="frozen-prefix" id="frozenPrefix"></span>
-          <span class="fake-cursor"></span>
           <input
             type="text"
             id="secretInput"
