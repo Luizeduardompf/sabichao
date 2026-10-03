@@ -259,6 +259,15 @@ h1{
   font-weight:600;
   white-space:pre;
 }
+.fake-cursor{
+  flex-shrink:0;
+  display:inline-block;
+  width:2px;
+  height:1.15em;
+  background:var(--gold);
+  margin-left:2px;
+  opacity:0.9;
+}
 #secretInput{
   flex:1;
   min-width:4px;
@@ -505,6 +514,7 @@ h1{
         >
         <div class="field-input secret-box" id="secretBox" style="display:none">
           <span class="frozen-prefix" id="frozenPrefix"></span>
+          <span class="fake-cursor"></span>
           <input
             type="text"
             id="secretInput"
